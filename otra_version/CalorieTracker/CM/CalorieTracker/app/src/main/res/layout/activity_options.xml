@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OptionsActivity">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPTIONS"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/maintenanceCaloriesView"
+        />
+
+    <TextView
+        android:id="@+id/maintenanceCaloriesView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maintenance calories"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"
+        android:layout_marginTop="70dp"
+        />
+
+    <EditText
+        android:id="@+id/insertCaloriesView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/maintenanceCaloriesView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/caloriesDifferenceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Difference"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertCaloriesView"
+        android:layout_marginTop="60dp"
+        />
+
+    <EditText
+        android:id="@+id/insertDifferenceView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesDifferenceView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
+    <Switch
+        android:id="@+id/switchModeDeficit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Deficit"
+        android:textSize="30sp"
+        android:scrollbarSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/insertDifferenceView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        />
+
+    <Switch
+        android:id="@+id/switchModeSurplus"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Surplus"
+        android:textSize="30sp"
+        android:scrollbarSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/switchModeDeficit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
