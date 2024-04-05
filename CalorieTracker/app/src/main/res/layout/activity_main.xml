@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/viewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:text="Calories"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/viewCaloriesConsumed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="0 /"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewTitle" />
+
+    <TextView
+        android:id="@+id/textViewCalories"
+        android:layout_width="78dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toEndOf="@+id/viewCaloriesConsumed"
+        app:layout_constraintTop_toBottomOf="@id/viewTitle" />
+
+    <TextView
+        android:id="@+id/viewBreakfast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewCaloriesConsumed"
+        android:text="Breakfast"
+        android:textSize="32dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="30dp"/>
+
+    <Button
+        android:id="@+id/viewBreakfastButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewBreakfast"
+        android:layout_marginEnd="30dp"/>
+
+    <TextView
+        android:id="@+id/viewLunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewBreakfast"
+        app:layout_constraintBottom_toTopOf="@id/viewDinner"
+        android:text="Lunch"
+        android:textSize="32sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"/>
+
+    <Button
+        android:id="@+id/viewLunchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewLunch"
+        android:layout_marginEnd="30dp"/>
+
+    <TextView
+        android:id="@+id/viewDinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewLunch"
+        app:layout_constraintBottom_toTopOf="@id/viewSnacks"
+        android:text="Dinner"
+        android:textSize="32sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"/>
+
+    <Button
+        android:id="@+id/viewDinnerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewDinner"
+        android:layout_marginEnd="30dp"/>
+
+    <TextView
+        android:id="@+id/viewSnacks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewDinner"
+        android:text="Snacks"
+        android:textSize="32sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"/>
+
+    <Button
+        android:id="@+id/viewSnacksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewSnacks"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="30dp"/>
+
+    <Button
+        android:id="@+id/viewOptionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
