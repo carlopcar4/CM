@@ -19,15 +19,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         sharedPreferences = getSharedPreferences("CaloriePrefs", MODE_PRIVATE)
-        val caloriesValue = sharedPreferences.getString("caloriesValue", "0")
 
+        // Obtén el valor de caloriesValue y differenceValue
+        val caloriesValue = sharedPreferences.getString("caloriesValue", "0") ?: "0"
+        val differenceValue = sharedPreferences.getString("differenceValue", "0") ?: "0"
+        val deficit = sharedPreferences.getBoolean("isDeficitChecked", false)
+        val surplus = sharedPreferences.getBoolean("isSurplusChecked", false)
+        val totalCalories: Int
+        // Calcula totalCalories
+        if (deficit) {
+            totalCalories = (caloriesValue.toIntOrNull() ?: 0) - (differenceValue.toIntOrNull() ?: 0)
+        } else {
+            totalCalories = (caloriesValue.toIntOrNull() ?: 0) + (differenceValue.toIntOrNull() ?: 0)
+        }
+
+        // Muestra totalCalories en caloriesTextView
         caloriesTextView = findViewById(R.id.textViewCalories)
-        caloriesTextView.text = caloriesValue
+        caloriesTextView.text = totalCalories.toString()
 
         val optionsButton = findViewById<Button>(R.id.viewOptionsButton)
         optionsButton.setOnClickListener {
             val intent = Intent(this, OptionsActivity::class.java)
-            startActivityForResult(intent, optionsRequestCode, null)
+            startActivityForResult(intent, optionsRequestCode)
         }
     }
 

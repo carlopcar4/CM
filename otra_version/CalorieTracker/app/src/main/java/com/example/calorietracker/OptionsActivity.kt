@@ -27,6 +27,8 @@ class OptionsActivity : AppCompatActivity() {
         val insertDifferenceView = findViewById<EditText>(R.id.insertDifferenceView)
         insertDifferenceView.setText(sharedPreferences.getString("differenceValue", ""))
 
+
+
         switchModeDeficit = findViewById(R.id.switchModeDeficit)
         switchModeSurplus = findViewById(R.id.switchModeSurplus)
 
@@ -53,14 +55,29 @@ class OptionsActivity : AppCompatActivity() {
             val caloriesValue = insertCaloriesView.text.toString()
             val differenceValue = insertDifferenceView.text.toString()
 
+            val calories = caloriesValue.toIntOrNull() ?: 0
+            val difference = differenceValue.toIntOrNull() ?: 0
+
+            val isDeficitActive = switchModeDeficit.isChecked
+
+            // Si el modo de déficit está activo, restar la diferencia del total de calorías
+            val totalCalories = if (isDeficitActive) {
+                calories - difference
+            } else {
+                calories + difference
+            }
+
+            // Guarda los valores en SharedPreferences
             saveCaloriesValue(caloriesValue)
             saveDifferenceValue(differenceValue)
 
+            // Envía el resultado de vuelta a la actividad principal
             val intent = Intent()
-            intent.putExtra("caloriesValue", caloriesValue)
+            intent.putExtra("caloriesValue", totalCalories.toString()) // Pasar totalCalories en lugar de caloriesValue
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
+
     }
 
     private fun saveCaloriesValue(value: String) {
