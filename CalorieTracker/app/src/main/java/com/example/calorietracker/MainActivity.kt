@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == optionsRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val newCaloriesValue = data.getStringExtra("caloriesValue") ?: "0"
             val newDifferenceValue = data.getStringExtra("differenceValue") ?: "0"
-            val deficit = data.getStringExtra("modeDeficit") ?: "true"
-            val surplus = data.getStringExtra("modeSurplus") ?: "false"
-            if (deficit == "true") {
+            val deficit = sharedPreferences.getBoolean("isDeficitChecked", false)
+            Log.d("DEFICIT: ", deficit.toString())
+            if (deficit) {
                 val newCaloriesValueAfterDifference = newCaloriesValue.toInt() - newDifferenceValue.toInt()
                 caloriesTextView.text = newCaloriesValueAfterDifference.toString()
             } else {
