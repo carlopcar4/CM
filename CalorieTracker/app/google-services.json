@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "533787185669",
+    "project_id": "prueba-bd-f6902",
+    "storage_bucket": "prueba-bd-f6902.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533787185669:android:9817f56ec576e99478826c",
+        "android_client_info": {
+          "package_name": "com.example.calorietracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8cfJm-L8RCIVqc4MCVEboKS0n1tZvhaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533787185669:android:76b8d86ed9e80c4078826c",
+        "android_client_info": {
+          "package_name": "com.example.movil1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8cfJm-L8RCIVqc4MCVEboKS0n1tZvhaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
