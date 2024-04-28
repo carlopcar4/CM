@@ -11,60 +11,60 @@
         android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OPTIONS"
-        android:textSize="50sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp"
+        android:text="OPTIONS"
+        android:textColor="#000000"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/maintenanceCaloriesView"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/maintenanceCaloriesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Maintenance calories"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView"
         android:layout_marginTop="70dp"
-        />
+        android:text="Maintenance calories"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView" />
 
     <EditText
         android:id="@+id/insertCaloriesView"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        app:layout_constraintTop_toBottomOf="@+id/maintenanceCaloriesView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
-        />
+        android:singleLine="true"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maintenanceCaloriesView" />
 
     <TextView
         android:id="@+id/caloriesDifferenceView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calories Difference"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insertCaloriesView"
         android:layout_marginTop="60dp"
-        />
+        android:text="Calories Difference"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertCaloriesView" />
 
     <EditText
         android:id="@+id/insertDifferenceView"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        app:layout_constraintTop_toBottomOf="@+id/caloriesDifferenceView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
-        />
+        android:singleLine="true"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesDifferenceView" />
 
     <Switch
         android:id="@+id/switchModeDeficit"
@@ -73,6 +73,7 @@
         android:layout_marginTop="68dp"
         android:scrollbarSize="30dp"
         android:text="Deficit"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
@@ -87,6 +88,7 @@
         android:layout_marginTop="68dp"
         android:scrollbarSize="30dp"
         android:text="Surplus"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"

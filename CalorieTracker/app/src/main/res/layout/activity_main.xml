@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Calories"
+        android:textColor="#000000"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="0 /"
+        android:textColor="#000000"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
@@ -35,6 +37,7 @@
         android:layout_width="78dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"
+        android:textColor="#000000"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
@@ -45,12 +48,13 @@
         android:id="@+id/viewBreakfast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewCaloriesConsumed"
-        android:text="Breakfast"
-        android:textSize="32dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="75dp"
-        android:layout_marginStart="30dp"/>
+        android:text="Breakfast"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewCaloriesConsumed" />
 
     <Button
         android:id="@+id/viewBreakfastButton"
@@ -66,13 +70,14 @@
         android:id="@+id/viewLunch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewBreakfast"
-        app:layout_constraintBottom_toTopOf="@id/viewDinner"
-        android:text="Lunch"
-        android:textSize="32sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="30dp"/>
+        android:text="Lunch"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/viewDinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewBreakfast" />
 
     <Button
         android:id="@+id/viewLunchButton"
@@ -88,13 +93,14 @@
         android:id="@+id/viewDinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewLunch"
-        app:layout_constraintBottom_toTopOf="@id/viewSnacks"
-        android:text="Dinner"
-        android:textSize="32sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="30dp"/>
+        android:text="Dinner"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/viewSnacks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewLunch" />
 
     <Button
         android:id="@+id/viewDinnerButton"
@@ -110,12 +116,13 @@
         android:id="@+id/viewSnacks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewDinner"
-        android:text="Snacks"
-        android:textSize="32sp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="30dp"/>
+        android:text="Snacks"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewDinner" />
 
     <Button
         android:id="@+id/viewSnacksButton"
