@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+
 class MainActivity : AppCompatActivity() {
 
     private val optionsRequestCode = 1
@@ -47,6 +48,12 @@ class MainActivity : AppCompatActivity() {
         optionsButton.setOnClickListener {
             val intent = Intent(this, OptionsActivity::class.java)
             startActivityForResult(intent, optionsRequestCode, null)
+        }
+        val breakfastButton = findViewById<Button>(R.id.viewBreakfastButton)
+        breakfastButton.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, ListActivity::class.java)
+            startActivity(intent)
         }
 
         db.collection("foods")
