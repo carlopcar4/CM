@@ -16,7 +16,16 @@
             android:name=".OptionsActivity"
             android:exported="false" />
         <activity
-            android:name=".ListActivity"
+            android:name=".BreakfastListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LunchListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DinnerListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SnackListActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

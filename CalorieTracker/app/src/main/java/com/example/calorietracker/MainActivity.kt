@@ -52,15 +52,33 @@ class MainActivity : AppCompatActivity() {
         val breakfastButton = findViewById<Button>(R.id.viewBreakfastButton)
         breakfastButton.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, ListActivity::class.java)
+            val intent = Intent(this, BreakfastListActivity::class.java)
+            startActivity(intent)
+        }
+        val lunchButton = findViewById<Button>(R.id.viewLunchButton)
+        lunchButton.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, LunchListActivity::class.java)
+            startActivity(intent)
+        }
+        val dinnerButton = findViewById<Button>(R.id.viewDinnerButton)
+        dinnerButton.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, DinnerListActivity::class.java)
+            startActivity(intent)
+        }
+        val snacksButton = findViewById<Button>(R.id.viewSnacksButton)
+        snacksButton.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, SnackListActivity::class.java)
             startActivity(intent)
         }
 
-        db.collection("foods")
+        /*db.collection("breakfast")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    val nombre = document.getString("food") ?: ""
+                    val nombre = document.getString("name") ?: ""
                     val caloriasStr = document.getString("calories") ?: "0"
                     val calorias = parseCalorias(caloriasStr)
                     val food = Food(nombre, calorias)
@@ -71,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.w("ERROR", "Error getting documents.", exception)
-            }
+            }*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

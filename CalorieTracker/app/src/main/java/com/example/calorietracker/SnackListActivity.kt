@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class ListActivity : AppCompatActivity() {
+class SnackListActivity : AppCompatActivity() {
 
     private lateinit var listView: ListView
-    private val foodList = mutableListOf<MainActivity.Food>()
+    private val foodList = ArrayList<MainActivity.Food>()
     private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,11 +20,11 @@ class ListActivity : AppCompatActivity() {
 
         listView = findViewById(R.id.listView)
 
-        db.collection("foods")
+        db.collection("snacks")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    val nombre = document.getString("food") ?: ""
+                    val nombre = document.getString("name") ?: ""
                     val caloriasStr = document.getString("calories") ?: "0"
                     val calorias = parseCalorias(caloriasStr)
                     val food = MainActivity.Food(nombre, calorias)
