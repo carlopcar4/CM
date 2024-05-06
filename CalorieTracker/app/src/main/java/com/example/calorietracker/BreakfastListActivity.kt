@@ -1,5 +1,6 @@
 package com.example.calorietracker
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -45,6 +46,16 @@ class BreakfastListActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("ERROR", "Error getting documents.", exception)
             }
+        // Agregar listener para cuando se seleccione un elemento de la lista
+        listView.setOnItemClickListener { _, _, position, _ ->
+            // Obtener las calorías del alimento seleccionado
+            val selectedFoodCalories = foodList[position].calorias
+            // Crear un Intent para enviar las calorías de vuelta a MainActivity
+            val intent = Intent()
+            intent.putExtra("selectedFoodCalories", selectedFoodCalories.toString())
+            setResult(RESULT_OK, intent)
+            finish() // Cerrar esta actividad y volver a la anterior
+        }
     }
 
     // Función para convertir una cadena de calorías en un valor entero

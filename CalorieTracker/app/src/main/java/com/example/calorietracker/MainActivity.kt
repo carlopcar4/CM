@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
     private val optionsRequestCode = 1
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var caloriesTextView: TextView
+    private lateinit var caloriesConsumed: TextView
+    private val breakfastListRequestCode = 100
+    private val lunchListRequestCode = 101
+    private val dinnerListRequestCode = 102
+    private val snacksListRequestCode = 103
     data class Food(val nombre: String, val calorias: Int)
     val foodList = mutableListOf<Food>()
 
@@ -44,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         caloriesTextView = findViewById(R.id.textViewCalories)
         caloriesTextView.text = caloriesValue
 
+        caloriesConsumed = findViewById(R.id.viewCaloriesConsumed)
+        caloriesConsumed.text = "0"
+
         val optionsButton = findViewById<Button>(R.id.viewOptionsButton)
         optionsButton.setOnClickListener {
             val intent = Intent(this, OptionsActivity::class.java)
@@ -53,25 +61,25 @@ class MainActivity : AppCompatActivity() {
         breakfastButton.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, BreakfastListActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, breakfastListRequestCode)
         }
         val lunchButton = findViewById<Button>(R.id.viewLunchButton)
         lunchButton.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, LunchListActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, lunchListRequestCode)
         }
         val dinnerButton = findViewById<Button>(R.id.viewDinnerButton)
         dinnerButton.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, DinnerListActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, dinnerListRequestCode)
         }
         val snacksButton = findViewById<Button>(R.id.viewSnacksButton)
         snacksButton.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, SnackListActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, snacksListRequestCode)
         }
 
         /*db.collection("breakfast")
@@ -106,6 +114,26 @@ class MainActivity : AppCompatActivity() {
                 val newCaloriesValueAfterDifference = newCaloriesValue.toInt() + newDifferenceValue.toInt()
                 caloriesTextView.text = newCaloriesValueAfterDifference.toString()
             }
+        } else if (requestCode == breakfastListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
+            val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
+            val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
+            caloriesConsumed.text = newCaloriesConsumed.toString()
+        } else if (requestCode == lunchListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
+            val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
+            val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
+            caloriesConsumed.text = newCaloriesConsumed.toString()
+        } else if (requestCode == dinnerListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
+            val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
+            val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
+            caloriesConsumed.text = newCaloriesConsumed.toString()
+        } else if (requestCode == snacksListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
+            val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
+            val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
+            caloriesConsumed.text = newCaloriesConsumed.toString()
         }
     }
 }
