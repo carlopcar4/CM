@@ -49,8 +49,16 @@ class MainActivity : AppCompatActivity() {
         caloriesTextView = findViewById(R.id.textViewCalories)
         caloriesTextView.text = caloriesValue
 
+        // Después de inicializar caloriesTextView en onCreate
+        val savedCaloriesTextView = sharedPreferences.getInt("caloriesTextView", 0)
+        caloriesTextView.text = savedCaloriesTextView.toString()
+
         caloriesConsumed = findViewById(R.id.viewCaloriesConsumed)
         caloriesConsumed.text = "0"
+
+        // Después de inicializar caloriesConsumed en onCreate
+        val savedCaloriesConsumed = sharedPreferences.getInt("caloriesConsumed", 0)
+        caloriesConsumed.text = savedCaloriesConsumed.toString()
 
         val optionsButton = findViewById<Button>(R.id.viewOptionsButton)
         optionsButton.setOnClickListener {
@@ -110,20 +118,36 @@ class MainActivity : AppCompatActivity() {
             if (deficit) {
                 val newCaloriesValueAfterDifference = newCaloriesValue.toInt() - newDifferenceValue.toInt()
                 caloriesTextView.text = newCaloriesValueAfterDifference.toString()
+
+                val editor = sharedPreferences.edit()
+                editor.putInt("caloriesTextView", newCaloriesValueAfterDifference)
+                editor.apply()
             } else {
                 val newCaloriesValueAfterDifference = newCaloriesValue.toInt() + newDifferenceValue.toInt()
                 caloriesTextView.text = newCaloriesValueAfterDifference.toString()
+
+                val editor = sharedPreferences.edit()
+                editor.putInt("caloriesTextView", newCaloriesValueAfterDifference)
+                editor.apply()
             }
         } else if (requestCode == breakfastListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
+            // Después de actualizar caloriesConsumed en onActivityResult
+            val editor = sharedPreferences.edit()
+            editor.putInt("caloriesConsumed", newCaloriesConsumed)
+            editor.apply()
         } else if (requestCode == lunchListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
+            // Después de actualizar caloriesConsumed en onActivityResult
+            val editor = sharedPreferences.edit()
+            editor.putInt("caloriesConsumed", newCaloriesConsumed)
+            editor.apply()
         } else if (requestCode == dinnerListRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val selectedFoodCalories = data.getStringExtra("selectedFoodCalories")?.toInt() ?: 0
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
@@ -134,6 +158,11 @@ class MainActivity : AppCompatActivity() {
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
+            // Después de actualizar caloriesConsumed en onActivityResult
+            val editor = sharedPreferences.edit()
+            editor.putInt("caloriesConsumed", newCaloriesConsumed)
+            editor.apply()
         }
+
     }
 }
