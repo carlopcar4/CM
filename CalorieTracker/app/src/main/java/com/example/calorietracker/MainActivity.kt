@@ -25,15 +25,10 @@ class MainActivity : AppCompatActivity() {
     data class Food(val nombre: String, val calorias: Int)
     val foodList = mutableListOf<Food>()
 
-    // Función para convertir una cadena de calorías en un valor entero
     fun parseCalorias(caloriasStr: String): Int {
-        // Eliminar caracteres no numéricos excepto comas y puntos
         val cleanString = caloriasStr.replace(Regex("[^\\d,.]"), "")
-        // Reemplazar comas con puntos para que el valor sea parseable
         val parseableString = cleanString.replace(',', '.')
-        // Intentar convertir la cadena parseable en un valor flotante
         val floatValue = parseableString.toFloatOrNull() ?: 0.0f
-        // Convertir el valor flotante a un entero
         return floatValue.toInt()
     }
 
@@ -49,14 +44,12 @@ class MainActivity : AppCompatActivity() {
         caloriesTextView = findViewById(R.id.textViewCalories)
         caloriesTextView.text = caloriesValue
 
-        // Después de inicializar caloriesTextView en onCreate
         val savedCaloriesTextView = sharedPreferences.getInt("caloriesTextView", 0)
         caloriesTextView.text = savedCaloriesTextView.toString()
 
         caloriesConsumed = findViewById(R.id.viewCaloriesConsumed)
         caloriesConsumed.text = "0"
 
-        // Después de inicializar caloriesConsumed en onCreate
         val savedCaloriesConsumed = sharedPreferences.getInt("caloriesConsumed", 0)
         caloriesConsumed.text = savedCaloriesConsumed.toString()
 
@@ -67,45 +60,27 @@ class MainActivity : AppCompatActivity() {
         }
         val breakfastButton = findViewById<Button>(R.id.viewBreakfastButton)
         breakfastButton.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, BreakfastListActivity::class.java)
             startActivityForResult(intent, breakfastListRequestCode)
         }
+
         val lunchButton = findViewById<Button>(R.id.viewLunchButton)
         lunchButton.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, LunchListActivity::class.java)
             startActivityForResult(intent, lunchListRequestCode)
         }
+
         val dinnerButton = findViewById<Button>(R.id.viewDinnerButton)
         dinnerButton.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, DinnerListActivity::class.java)
             startActivityForResult(intent, dinnerListRequestCode)
         }
+
         val snacksButton = findViewById<Button>(R.id.viewSnacksButton)
         snacksButton.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, SnackListActivity::class.java)
             startActivityForResult(intent, snacksListRequestCode)
         }
-
-        /*db.collection("breakfast")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val nombre = document.getString("name") ?: ""
-                    val caloriasStr = document.getString("calories") ?: "0"
-                    val calorias = parseCalorias(caloriasStr)
-                    val food = Food(nombre, calorias)
-                    foodList.add(food)
-                }
-                Log.d("LISTA DE COMIDAS", foodList.toString())
-                Log.d("SUCCESS", "Success getting documents.")
-            }
-            .addOnFailureListener { exception ->
-                Log.w("ERROR", "Error getting documents.", exception)
-            }*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -135,7 +110,6 @@ class MainActivity : AppCompatActivity() {
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
-            // Después de actualizar caloriesConsumed en onActivityResult
             val editor = sharedPreferences.edit()
             editor.putInt("caloriesConsumed", newCaloriesConsumed)
             editor.apply()
@@ -144,7 +118,6 @@ class MainActivity : AppCompatActivity() {
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
-            // Después de actualizar caloriesConsumed en onActivityResult
             val editor = sharedPreferences.edit()
             editor.putInt("caloriesConsumed", newCaloriesConsumed)
             editor.apply()
@@ -158,11 +131,9 @@ class MainActivity : AppCompatActivity() {
             val currentCaloriesConsumed = caloriesConsumed.text.toString().toInt()
             val newCaloriesConsumed = currentCaloriesConsumed + selectedFoodCalories
             caloriesConsumed.text = newCaloriesConsumed.toString()
-            // Después de actualizar caloriesConsumed en onActivityResult
             val editor = sharedPreferences.edit()
             editor.putInt("caloriesConsumed", newCaloriesConsumed)
             editor.apply()
         }
-
     }
 }

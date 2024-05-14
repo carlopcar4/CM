@@ -33,8 +33,6 @@ class SnackListActivity : AppCompatActivity() {
                 }
                 Log.d("SUCCESS", "Success getting documents.")
 
-                // Una vez que se hayan cargado los datos desde la base de datos,
-                // actualizamos el ListView con los nombres y las calorías de las comidas
                 val adapter = ArrayAdapter(
                     this,
                     android.R.layout.simple_list_item_2,
@@ -46,27 +44,19 @@ class SnackListActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("ERROR", "Error getting documents.", exception)
             }
-        // Agregar listener para cuando se seleccione un elemento de la lista
         listView.setOnItemClickListener { _, _, position, _ ->
-            // Obtener las calorías del alimento seleccionado
             val selectedFoodCalories = foodList[position].calorias
-            // Crear un Intent para enviar las calorías de vuelta a MainActivity
             val intent = Intent()
             intent.putExtra("selectedFoodCalories", selectedFoodCalories.toString())
             setResult(RESULT_OK, intent)
-            finish() // Cerrar esta actividad y volver a la anterior
+            finish()
         }
     }
 
-    // Función para convertir una cadena de calorías en un valor entero
     private fun parseCalorias(caloriasStr: String): Int {
-        // Eliminar caracteres no numéricos excepto comas y puntos
         val cleanString = caloriasStr.replace(Regex("[^\\d,.]"), "")
-        // Reemplazar comas con puntos para que el valor sea parseable
         val parseableString = cleanString.replace(',', '.')
-        // Intentar convertir la cadena parseable en un valor flotante
         val floatValue = parseableString.toFloatOrNull() ?: 0.0f
-        // Convertir el valor flotante a un entero
         return floatValue.toInt()
     }
 }

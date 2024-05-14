@@ -28,31 +28,25 @@ class OptionsActivity : AppCompatActivity() {
         insertDifferenceView.setText(sharedPreferences.getString("differenceValue", ""))
 
         switchModeDeficit = findViewById(R.id.switchModeDeficit)
-        // Después de inicializar caloriesConsumed en onCreate
         val savedSwitchModeDeficit = sharedPreferences.getString("switchModeDeficit", "Deficit")
         switchModeDeficit.text = savedSwitchModeDeficit.toString()
 
         switchModeSurplus = findViewById(R.id.switchModeSurplus)
-        // Después de inicializar caloriesConsumed en onCreate
         val savedSwitchModeSurplus = sharedPreferences.getString("switchModeSurplus", "Surplus")
         switchModeSurplus.text = savedSwitchModeSurplus.toString()
 
-
-        // Restaurar el estado del Switch
         switchModeDeficit.isChecked = sharedPreferences.getBoolean("isDeficitChecked", false)
         switchModeSurplus.isChecked = sharedPreferences.getBoolean("isSurplusChecked", false)
 
         switchModeDeficit.setOnCheckedChangeListener { _, isChecked ->
-            switchModeSurplus.isChecked = !isChecked // Desmarcar el otro Switch
+            switchModeSurplus.isChecked = !isChecked
 
-            // Guardar el estado del Switch en las preferencias compartidas
             sharedPreferences.edit().putBoolean("isDeficitChecked", isChecked).apply()
         }
 
         switchModeSurplus.setOnCheckedChangeListener { _, isChecked ->
-            switchModeDeficit.isChecked = !isChecked // Desmarcar el otro Switch
+            switchModeDeficit.isChecked = !isChecked
 
-            // Guardar el estado del Switch en las preferencias compartidas
             sharedPreferences.edit().putBoolean("isSurplusChecked", isChecked).apply()
         }
 
